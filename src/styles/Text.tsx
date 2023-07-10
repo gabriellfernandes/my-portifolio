@@ -1,0 +1,91 @@
+import { styled } from '@/styles/stitches.config';
+import { colors } from '@/styles/Global'
+
+const headingsDefaultConfig = {
+    fontFamily: "$titles"
+}
+
+const bodyDefaultConfig = {
+    fontFamily: "$texts"
+}
+
+export const Text = styled("p", {
+    color: "$grey1",
+    fontSize: "$text1",
+    fontWeight: 400,
+    variants: {
+        type: {
+            heading1: {
+                fontSize: "$title1",
+                lineHeight: "$title1",
+                fontWeight: 700,
+                ...headingsDefaultConfig,
+                "@mobile": {
+                    fontSize: "$title1Mobile",
+                    lineHeight: "$title1Mobile"
+                }
+            },
+            heading2: {
+                fontSize: "$title2",
+                lineHeight: "$title2",
+                fontWeight: 700,
+                ...headingsDefaultConfig
+            },
+            heading3: {
+                fontSize: "$title3",
+                lineHeight: "$title3",
+                fontWeight: 700,
+                ...headingsDefaultConfig
+            },
+            heading4: {
+                fontSize: "$title4",
+                lineHeight: "$title4",
+                fontWeight: 700,
+                ...headingsDefaultConfig
+            },
+            body1: {
+                fontSize: "$text1",
+                lineHeight: "$text1",
+                ...bodyDefaultConfig
+            },
+            body2: {
+                fontSize: "$text2",
+                lineHeight: "$text2",
+                ...bodyDefaultConfig
+            },
+            body2Effect: {
+                "&": {
+                    fontSize: "$text2",
+                    lineHeight: "$text2",
+                    ...bodyDefaultConfig,
+                    
+                    "&": {
+                      position: "relative",
+                      width: "max-content",
+                      cursor: "pointer",
+                  
+                      "&:after, &:before": {
+                        transition: "all .5s cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+                        content: '',
+                        position: "absolute",
+                      },
+                  
+                      "&:after": {
+                        bottom: "0",
+                        left: "50%",
+                        transform: "translate(-50%)",
+                        height: "2px",
+                        background: "#333",
+                        width: 0,
+                      },
+                  
+                      "&:hover:after": {
+                        width: "100%"
+                      },
+                    },
+                  }, 
+            }
+        },
+        ...colors
+    }
+})
